@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 
 import Editor from './Editor'
-import * as editorActions from '../../stores/editorModel/actions'
+import * as editorActions from '../../stores/editor/actions'
 
 class EditorContainer extends Component {
   render () {
@@ -39,8 +39,8 @@ EditorContainer.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    name: state.editorModel.name,
-    content: state.editorModel.content,
+    name: state.editor.name,
+    content: state.editor.content,
   }
 }
 

@@ -12,6 +12,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import configureStore from './stores/index'
 import App from './components/App'
 import Editor from './components/Editor'
+import Page from './components/Page'
 
 const history = createBrowserHistory()
 const store = configureStore()
@@ -21,6 +22,10 @@ ReactDOM.render(
     <Router history={history}>
       <Route component={App} path='/'>
         <IndexRoute component={Editor} />
+        <Route
+          component={Page}
+          path='/pages'
+        />
       </Route>
     </Router>
   </Provider>,

@@ -37,7 +37,7 @@ export default class Header extends Component {
   }
 }
 
-Header.displayName = 'Header'
+Header.displayName = 'CreatePage'
 
 Header.propTypes = {
   onSave: PropTypes.func.isRequired,
