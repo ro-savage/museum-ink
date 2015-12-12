@@ -1,0 +1,10 @@
+$padding: 20px;
+
+.container {
+  composes: colourful from '../common/shared';
+  padding: $padding;
+}
+
+.heading {
+  font-family: Helvetica;
+}

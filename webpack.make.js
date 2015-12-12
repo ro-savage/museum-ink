@@ -166,6 +166,14 @@ module.exports = function makeWebpackConfig (options) {
     autoprefixer({
       browsers: ['last 2 version'],
     }),
+
+    /**
+     * SIMPLE VARS
+     * Reference: https://github.com/postcss/postcss-simple-vars
+     * PostCSS plugin for Sass-like variables
+     */
+    require('postcss-simple-vars'),
+
   ];
 
   /**
