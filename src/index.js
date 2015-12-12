@@ -1,5 +1,7 @@
-// bootstrappin
+// use bluebird as the Promise implementation
 require('babel-runtime/core-js/promise').default = require('bluebird');
+
+import 'babel-polyfill'
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,7 +11,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import configureStore from './stores/index';
 import App from './containers/App';
-import Index from './components/Index';
+import Editor from './components/Editor';
 
 const history = createBrowserHistory();
 const store = configureStore();
@@ -18,7 +20,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route component={App} path='/'>
-        <IndexRoute component={Index} />
+        <IndexRoute component={Editor} />
       </Route>
     </Router>
   </Provider>,

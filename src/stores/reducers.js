@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 
-import text from './text/reducer';
+import content from './content/reducer';
 
 export default combineReducers({
-  text: text,
+  content,
 });
 
