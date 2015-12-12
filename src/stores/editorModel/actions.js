@@ -2,9 +2,9 @@ import * as constants from './constants'
 import db from '../db'
 
 export function saveContent (editorContentModel) {
-  db.get('settext1').then((doc) => db.put({
+  db.get(editorContentModel.name).then((doc) => db.put({
     _id: editorContentModel.name,
-    _rev: doc.rev,
+    _rev: doc._rev,
     content: editorContentModel.content,
   }))
 
