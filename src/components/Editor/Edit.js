@@ -1,14 +1,16 @@
 import React, {Component, PropTypes} from 'react'
 import ProseMirror from 'react-prosemirror'
 
-import 'prosemirror/src/menu/menu'
+import 'prosemirror/src/inputrules/autoinput'
 import 'prosemirror/src/menu/menubar'
+import 'prosemirror/src/menu/tooltipmenu'
 
 import css from './styles'
 
 const OPTIONS = {
   docFormat: 'html',
-  menuBar: {float: true},
+  menuBar: true,
+  tooltipMenu: true,
 }
 
 export default class Edit extends Component {
