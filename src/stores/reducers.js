@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux';
+import {combineReducers} from 'redux'
 
-import content from './content/reducer';
+import content from './content/reducer'
 
 export default combineReducers({
   content,
-});
+})
 
