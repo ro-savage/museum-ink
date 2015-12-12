@@ -1,14 +1,9 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
-// stores
-import text from './text/reducer';
-
-const rootReducer = combineReducers({
-  text,
-});
+import rootReducer from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(
   thunk,
@@ -19,13 +14,13 @@ const createStoreWithMiddleware = applyMiddleware(
 export default function configureStore (initialState) {
   const store = createStoreWithMiddleware(rootReducer, initialState);
 
-  // if (module.hot) {
-  //   // Enable Webpack hot module replacement for reducers
-  //   module.hot.accept('../reducers', () => {
-  //     const nextRootReducer = require('../reducers');
-  //     store.replaceReducer(nextRootReducer);
-  //   });
-  // }
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./reducers', () => {
+      const nextRootReducer = require('./reducers');
+      store.replaceReducer(nextRootReducer);
+    });
+  }
 
   return store;
 }
