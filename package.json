@@ -1,0 +1,53 @@
+{
+  "name": "museum-ink",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.build.js --bail -p",
+    "dev": "webpack-dev-server --history-api-fallback --hot --inline --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ro-savage/museum-ink.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ro-savage/museum-ink/issues"
+  },
+  "homepage": "https://github.com/ro-savage/museum-ink#readme",
+  "dependencies": {
+    "bluebird": "^3.0.6",
+    "history": "^1.13.1",
+    "lodash": "^3.10.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-redux": "^4.0.0",
+    "react-router": "^1.0.2",
+    "redux": "^3.0.4",
+    "redux-logger": "^2.2.1",
+    "redux-promise": "^0.5.0",
+    "redux-thunk": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-runtime": "^6.3.13",
+    "clean-webpack-plugin": "^0.1.5",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "html-webpack-plugin": "^1.7.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  }
+}
