@@ -7,7 +7,7 @@ import {getPage, getPages, createPage} from '../../stores/page/actions'
 
 class PageListContainer extends Component {
   render () {
-    const {pages} = this.props
+    const {pages, getPages} = this.props
 
     return <div>
       <CreatePage
@@ -16,6 +16,7 @@ class PageListContainer extends Component {
       <br /><br />
       <PageList
         pages={pages}
+        getPages={getPages}
       />
     </div>
   }
@@ -35,7 +36,7 @@ PageListContainer.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    pages: state.pages,
+    pages: state.page.pages,
   }
 }
 

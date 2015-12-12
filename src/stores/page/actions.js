@@ -18,26 +18,24 @@ export function getPages (id) {
   return db.find({
     selector: {type: 'page'},
     fields: ['_id', 'name'],
-    sort: ['name'],
-  }).then((doc) => {
-    const docList = _.map(doc, (page) => {
-      page.id = page._id
-      return page
+  }).then(({docs}) => {
+    const docList = _.map(docs, (page) => {
+      return {
+        id: page._id,
+        name: page.name,
+      }
     })
 
     return {
       type: constants.SET_PAGES,
-      payload: _.indexBy(docList, '_id'),
+      payload: _.indexBy(docList, 'id'),
     }
   })
 }
 
-export function createPage (name) {
-  return db.post(
-    {
-      name: name,
-    }
-  ).then((doc) => {
-    console.log(doc)
+export function createPage (page) {
+  return db.post({
+    name: page.name,
+    type: 'page',
   })
 }
