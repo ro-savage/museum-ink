@@ -10,7 +10,7 @@ import {Provider} from 'react-redux'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 import configureStore from './stores/index'
-import App from './containers/App'
+import App from './components/App'
 import Editor from './components/Editor'
 
 const history = createBrowserHistory()
