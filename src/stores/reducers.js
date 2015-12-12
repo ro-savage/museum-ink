@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
 
-import content from './content/reducer'
+import editorModel from './editorModel/reducer'
 
 export default combineReducers({
-  content,
+  editorModel,
 })
 

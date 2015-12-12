@@ -12,13 +12,18 @@ export default class Header extends Component {
 
   handleSave () {
     const {content, onSave} = this.props
-    onSave(content)
+    const name = this.refs.pageName.value
+    onSave({
+      name: name,
+      content: content,
+    })
   }
 
   render () {
     const {onCancel} = this.props
 
     return <div className={css.Header}>
+      <input type='text' ref="pageName"/>
       <button onClick={this.handleSave}>Save</button>
       <button onClick={onCancel}>Cancel</button>
     </div>

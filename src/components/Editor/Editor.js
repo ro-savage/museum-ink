@@ -9,16 +9,13 @@ export default class Editor extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      content: props.content,
-    }
-
-    this.handleChange = this.handleChange.bind(this)
+    this.handleEditContent = this.handleEditContent.bind(this)
     this.handleCancel = this.handleCancel.bind(this)
   }
 
-  handleChange (content) {
-    this.setState({content})
+  handleEditContent (content) {
+    const {name, onEdit} = this.props
+    onEdit({name, content})
   }
 
   handleCancel () {
@@ -27,19 +24,19 @@ export default class Editor extends Component {
   }
 
   render () {
-    const {content} = this.state
-    const {onSave} = this.props
+    const {name, content, onSave} = this.props
 
     return <div className={css.Editor}>
-      <h2 className={css.heading}>Editor</h2>
+      <h2 className={css.heading}>Editing page: {name}</h2>
       <Header
+        name={name}
         content={content}
         onSave={onSave}
         onCancel={this.handleCancel}
       />
       <Edit
         content={content}
-        onChange={this.handleChange}
+        onChange={this.handleEditContent}
       />
       <Preview
         content={content}
@@ -51,6 +48,8 @@ export default class Editor extends Component {
 Editor.displayName = 'Editor'
 
 Editor.propTypes = {
+  name: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   onSave: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
 }
