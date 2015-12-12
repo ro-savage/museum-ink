@@ -2,17 +2,23 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 
 import Editor from './Editor'
-import {saveContent, editContent} from '../../stores/editorModel/actions'
+import * as editorActions from '../../stores/editorModel/actions'
 
 class EditorContainer extends Component {
   render () {
-    const {name, content, saveContent, editContent} = this.props
+    const {
+      name, content,
+      saveEditor, loadEditor,
+      setEditorName, setEditorContent,
+    } = this.props
 
     return <Editor
       name={name}
       content={content}
-      onSave={saveContent}
-      onEdit={editContent}
+      onSave={saveEditor}
+      onLoad={loadEditor}
+      onEditName={setEditorName}
+      onEditContent={setEditorContent}
     />
   }
 }
@@ -25,8 +31,10 @@ EditorContainer.propTypes = {
   content: PropTypes.string,
 
   // actions
-  saveContent: PropTypes.func.isRequired,
-  editContent: PropTypes.func.isRequired,
+  saveEditor: PropTypes.func.isRequired,
+  loadEditor: PropTypes.func.isRequired,
+  setEditorName: PropTypes.func.isRequired,
+  setEditorContent: PropTypes.func.isRequired,
 }
 
 function mapStateToProps (state) {
@@ -37,8 +45,10 @@ function mapStateToProps (state) {
 }
 
 const actions = {
-  saveContent: saveContent,
-  editContent: editContent,
+  setEditorName: editorActions.setEditorName,
+  setEditorContent: editorActions.setEditorContent,
+  saveEditor: editorActions.saveEditor,
+  loadEditor: editorActions.loadEditor,
 }
 
 export default connect(mapStateToProps, actions)(EditorContainer)

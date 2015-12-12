@@ -8,24 +8,31 @@ export default class Header extends Component {
     super(props)
 
     this.handleSave = this.handleSave.bind(this)
+    this.handleLoad = this.handleLoad.bind(this)
+  }
+
+  getName () {
+    return this.refs.pageName.value
+  }
+
+  handleLoad () {
+    const {onLoad} = this.props
+    onLoad(this.getName())
   }
 
   handleSave () {
     const {content, onSave} = this.props
-    const name = this.refs.pageName.value
     onSave({
-      name: name,
+      name: this.getName(),
       content: content,
     })
   }
 
   render () {
-    const {onCancel} = this.props
-
     return <div className={css.Header}>
-      <input type='text' ref="pageName"/>
+      <input type='text' ref='pageName' />
+      <button onClick={this.handleLoad}>Load</button>
       <button onClick={this.handleSave}>Save</button>
-      <button onClick={onCancel}>Cancel</button>
     </div>
   }
 }
@@ -34,6 +41,6 @@ Header.displayName = 'Header'
 
 Header.propTypes = {
   onSave: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onLoad: PropTypes.func.isRequired,
   content: PropTypes.string,
 }

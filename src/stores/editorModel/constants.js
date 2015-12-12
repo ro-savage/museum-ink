@@ -1,2 +1,3 @@
-export const SAVE_CONTENT = 'SAVE_CONTENT'
-export const EDIT_CONTENT = 'EDIT_CONTENT'
+export const SET_EDITOR = 'SET_EDITOR'
+export const SET_EDITOR_NAME = 'SET_EDITOR_NAME'
+export const SET_EDITOR_CONTENT = 'SET_EDITOR_CONTENT'
