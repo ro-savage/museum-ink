@@ -95,6 +95,13 @@ module.exports = function makeWebpackConfig (options) {
       test: /\.js$/,
       loader: 'babel',
       exclude: /node_modules/,
+
+    }, {
+
+      test: /\.jsx?$/,
+      loader: 'babel',
+      include: /prosemirror/,
+
     }, {
 
       /**
