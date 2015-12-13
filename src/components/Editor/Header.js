@@ -7,8 +7,9 @@ export default class Header extends Component {
   constructor (props) {
     super(props)
 
-    this.handleSave = this.handleSave.bind(this)
     this.handleLoad = this.handleLoad.bind(this)
+    this.handleSave = this.handleSave.bind(this)
+    this.handleCreate = this.handleCreate.bind(this)
   }
 
   getName () {
@@ -28,11 +29,20 @@ export default class Header extends Component {
     })
   }
 
+  handleCreate () {
+    const {content, onCreate} = this.props
+    onCreate({
+      name: this.getName(),
+      content: content,
+    })
+  }
+
   render () {
     return <div className={css.Header}>
       <input type='text' ref='pageName' />
       <button onClick={this.handleLoad}>Load</button>
       <button onClick={this.handleSave}>Save</button>
+      <button onClick={this.handleCreate}>Create</button>
     </div>
   }
 }
@@ -40,7 +50,8 @@ export default class Header extends Component {
 Header.displayName = 'CreatePage'
 
 Header.propTypes = {
-  onSave: PropTypes.func.isRequired,
   onLoad: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
   content: PropTypes.string,
 }

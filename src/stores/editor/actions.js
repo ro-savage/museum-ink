@@ -26,6 +26,24 @@ export function saveEditor (editorContentModel) {
   }
 }
 
+export function createEditor (editorContentModel) {
+  db.put({
+    // _id: `editor_page-title_editor-${editorContentModel.name}`,
+    _id: editorContentModel.name,
+    type: 'editor',
+    subtype: 'html',
+    name: editorContentModel.name,
+    content: editorContentModel.content,
+  }).then((response) => {
+    console.log(response)
+  })
+
+  return {
+    type: constants.SET_EDITOR,
+    payload: editorContentModel,
+  }
+}
+
 export function setEditorName (name) {
   return {
     type: constants.SET_EDITOR_NAME,

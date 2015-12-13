@@ -8,15 +8,16 @@ class EditorContainer extends Component {
   render () {
     const {
       name, content,
-      saveEditor, loadEditor,
+      saveEditor, loadEditor, createEditor,
       setEditorName, setEditorContent,
     } = this.props
 
     return <Editor
       name={name}
       content={content}
-      onSave={saveEditor}
       onLoad={loadEditor}
+      onSave={saveEditor}
+      onCreate={createEditor}
       onEditName={setEditorName}
       onEditContent={setEditorContent}
     />
@@ -32,6 +33,7 @@ EditorContainer.propTypes = {
 
   // actions
   saveEditor: PropTypes.func.isRequired,
+  createEditor: PropTypes.func.isRequired,
   loadEditor: PropTypes.func.isRequired,
   setEditorName: PropTypes.func.isRequired,
   setEditorContent: PropTypes.func.isRequired,
@@ -48,6 +50,7 @@ const actions = {
   setEditorName: editorActions.setEditorName,
   setEditorContent: editorActions.setEditorContent,
   saveEditor: editorActions.saveEditor,
+  createEditor: editorActions.createEditor,
   loadEditor: editorActions.loadEditor,
 }
 

@@ -9,7 +9,8 @@ export default class Editor extends Component {
   render () {
     const {
       name, content,
-      onLoad, onSave, onEditContent,
+      onLoad, onSave, onCreate,
+      onEditContent,
     } = this.props
 
     return <div className={css.Editor}>
@@ -17,8 +18,9 @@ export default class Editor extends Component {
       <Header
         name={name}
         content={content}
-        onSave={onSave}
         onLoad={onLoad}
+        onSave={onSave}
+        onCreate={onCreate}
       />
       <Edit
         content={content}
@@ -38,6 +40,7 @@ Editor.propTypes = {
   content: PropTypes.string.isRequired,
 
   onEditContent: PropTypes.func.isRequired,
-  onSave: PropTypes.func.isRequired,
   onLoad: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
 }

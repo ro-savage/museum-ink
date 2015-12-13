@@ -12,15 +12,15 @@
     "type": "git",
     "url": "git+https://github.com/ro-savage/museum-ink.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Rowan Savage",
+  "license": "",
   "bugs": {
     "url": "https://github.com/ro-savage/museum-ink/issues"
   },
   "homepage": "https://github.com/ro-savage/museum-ink#readme",
   "dependencies": {
     "bluebird": "^3.0.6",
-    "history": "^1.13.1",
+    "history": "1.13.1",
     "lodash": "^3.10.1",
     "pouchdb": "^5.1.0",
     "pouchdb-find": "^0.8.0",
